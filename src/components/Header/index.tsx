@@ -17,6 +17,9 @@ export function Header(props: any) {
             <li>
               <button>
                 <ShoppingCart size={24} />
+                <div>
+                  <p>3</p>
+                </div>
               </button>
             </li>
           </ul>

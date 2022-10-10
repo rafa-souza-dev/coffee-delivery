@@ -31,6 +31,7 @@ export const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     border: 0;
     border-radius: 6px;
@@ -70,5 +71,35 @@ export const HeaderContainer = styled.header`
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 18.2px;
+  }
+
+  div ul li button div {
+    position: absolute;
+    border-radius: 50%;
+    width: 1.25rem;
+    height: 1.25rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    ${(props) =>
+      css`
+        background-color: ${props.theme.yellowDark};
+      `}
+    ${(props) =>
+      css`
+        color: ${props.theme.white};
+      `};
+
+    top: -0.5rem;
+    left: 1.646875rem;
+  }
+
+  div ul li button div p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 15.6px;
   }
 `
