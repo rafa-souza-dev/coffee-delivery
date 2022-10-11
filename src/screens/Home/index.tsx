@@ -1,4 +1,4 @@
-import { GridBanner, MenuInfo } from './styles'
+import { GridBanner, ListCoffees, MenuInfo } from './styles'
 import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import { Container } from '../../components/Container'
 import mainImage from '../../assets/main-image.png'
@@ -46,6 +46,12 @@ export function Home() {
         </MenuInfo>
         <img src={mainImage} alt="" />
       </GridBanner>
+      <ListCoffees>
+        <h1>Nossos cafés</h1>
+        <ul>
+          <li>cafézin</li>
+        </ul>
+      </ListCoffees>
     </Container>
   )
 }

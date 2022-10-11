@@ -135,3 +135,19 @@ export const MenuInfo = styled.div`
       `}
   }
 `
+
+export const ListCoffees = styled.main`
+  display: flex;
+  flex-direction: column;
+  gap: 3.375rem;
+
+  margin-top: 7rem;
+
+  h1 {
+    font-family: 'Baloo 2';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 41.6px;
+  }
+`
