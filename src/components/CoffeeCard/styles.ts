@@ -189,7 +189,7 @@ export const CardContainer = styled.div`
 
     ${(props) =>
       css`
-        background-color: ${props.theme.purpleDark};
+        background-color: ${props.theme.purple};
       `}
 
     ${(props) =>

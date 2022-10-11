@@ -49,7 +49,19 @@ export function Home() {
       </GridBanner>
       <ListCoffees>
         <h1>Nossos cafés</h1>
-        <ul>
+        <ul className="cardList">
+          <li>
+            <CoffeeCard />
+          </li>
+          <li>
+            <CoffeeCard />
+          </li>
+          <li>
+            <CoffeeCard />
+          </li>
+          <li>
+            <CoffeeCard />
+          </li>
           <li>
             <CoffeeCard />
           </li>

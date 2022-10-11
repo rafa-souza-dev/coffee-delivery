@@ -10,6 +10,10 @@ export const GridBanner = styled.div`
     width: 29.75rem;
     height: 22.5rem;
   }
+
+  @media (max-width: 1169px) {
+    grid-template-columns: 1fr;
+  }
 `
 
 export const MenuInfo = styled.div`
@@ -153,5 +157,20 @@ export const ListCoffees = styled.main`
 
   ul {
     list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 1166px) {
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    @media (max-width: 864px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (max-width: 574px) {
+      grid-template-columns: 1fr;
+    }
   }
 `

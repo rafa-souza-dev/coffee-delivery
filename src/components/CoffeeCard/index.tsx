@@ -19,11 +19,11 @@ export function CoffeeCard() {
         <div className="accumulatorContainer">
           <div className="selectQuantity">
             <button className="accumulator">
-              <Minus size={12} />
+              <Minus size={16} />
             </button>
             <p className="quantity">1</p>
             <button className="accumulator">
-              <Plus size={12} />
+              <Plus size={16} />
             </button>
           </div>
           <div className="iconCart">
