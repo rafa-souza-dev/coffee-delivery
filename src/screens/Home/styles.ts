@@ -150,4 +150,8 @@ export const ListCoffees = styled.main`
     font-size: 32px;
     line-height: 41.6px;
   }
+
+  ul {
+    list-style: none;
+  }
 `
