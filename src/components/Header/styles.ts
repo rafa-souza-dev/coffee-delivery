@@ -39,6 +39,8 @@ export const HeaderContainer = styled.header`
     height: 2.375rem;
     width: 2.375rem;
 
+    cursor: pointer;
+
     ${(props) =>
       css`
         background-color: ${props.theme.yellowLight};
