@@ -38,19 +38,19 @@ export const FormContainer = styled.div`
       `}
   }
 
-  div.inputBox div.titleContainer {
+  div.titleContainer {
     display: flex;
     flex-direction: column;
     gap: 0.125rem;
   }
 
-  div.inputBox div.titleContainer div.titleBox {
+  div.titleContainer div.titleBox {
     display: flex;
     align-items: center;
     gap: 0.5rem;
   }
 
-  div.inputBox div.titleContainer div.titleBox strong {
+  div.titleContainer div.titleBox strong {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -58,7 +58,7 @@ export const FormContainer = styled.div`
     line-height: 130%;
   }
 
-  div.inputBox div.titleContainer span {
+  div.titleContainer span {
     font-family: 'Roboto', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -118,10 +118,90 @@ export const FormContainer = styled.div`
   div.inputContainer input.city {
     width: 17.25rem;
   }
+
+  div.paymentMethodBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    width: 100%;
+    height: 12.9375rem;
+    padding: 2.5rem;
+
+    border-radius: 6px;
+
+    ${(props) =>
+      css`
+        background-color: ${props.theme.baseCard};
+      `}
+  }
+
+  div.paymentMethodBox div.methodSelect {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  div.paymentMethodBox div.methodSelect button {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    height: 3.1875rem;
+    width: 100%;
+
+    ${(props) =>
+      css`
+        background-color: ${props.theme.baseButton};
+      `}
+
+    border: 0;
+    border-radius: 6px;
+  }
+
+  div.paymentMethodBox div.methodSelect button p {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 160%;
+  }
 `
 
 export const FormSubmitContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`
+
+export const ButtonSelect = styled.button`
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  padding: 0 0 0 1rem;
+  gap: 0.75rem;
+
+  height: 3.1875rem;
+  width: 100%;
+  border: 0;
+  border-radius: 6px;
+
+  ${(props) =>
+    css`
+      background-color: ${props.theme.baseButton};
+    `}
+
+  span {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 19.2px;
+
+    ${(props) =>
+      css`
+        color: ${props.theme.baseText};
+      `}
+  }
 `
