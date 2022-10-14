@@ -4,6 +4,7 @@ import {
   CheckoutContainer,
   FormContainer,
   FormSubmitContainer,
+  SubmitContainer,
 } from './styles'
 import {
   MapPinLine,
@@ -12,6 +13,7 @@ import {
   Money,
   Bank,
 } from 'phosphor-react'
+import { AddedCoffee } from '../../components/AddedCoffee'
 
 // eslint-disable-next-line no-redeclare
 interface ButtonSelect {
@@ -103,7 +105,24 @@ export function Checkout() {
           </FormContainer>
           <FormSubmitContainer>
             <span className="title">Cafés selecionados</span>
-            <div></div>
+            <SubmitContainer>
+              <AddedCoffee />
+              <div className="priceTotalBox">
+                <div>
+                  <p>Total de itens</p>
+                  <span>R$ 29,70</span>
+                </div>
+                <div>
+                  <p>Entrega</p>
+                  <span>R$ 3,50</span>
+                </div>
+                <div>
+                  <p>Total</p>
+                  <span>R$ 33,20</span>
+                </div>
+              </div>
+              <button>CONFIRMAR PEDIDO</button>
+            </SubmitContainer>
           </FormSubmitContainer>
         </CheckoutContainer>
       </form>

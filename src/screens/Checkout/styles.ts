@@ -205,3 +205,53 @@ export const ButtonSelect = styled.button`
       `}
   }
 `
+
+export const SubmitContainer = styled.div`
+  min-height: 23.125rem;
+  border-radius: 6px 44px;
+  padding: 2.5rem;
+
+  ${(props) =>
+    css`
+      background-color: ${props.theme.baseCard};
+    `}
+
+  div.priceTotalBox {
+    height: 5.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    margin-bottom: 0.75rem;
+  }
+
+  div.priceTotalBox div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  button {
+    border: 0;
+    border-radius: 6px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 2.875rem;
+
+    ${(props) =>
+      css`
+        background-color: ${props.theme.yellow};
+        color: ${props.theme.white};
+      `}
+
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 160%;
+  }
+`
