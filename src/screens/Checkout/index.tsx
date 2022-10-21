@@ -1,6 +1,6 @@
 import { Container } from '../../components/Container'
 import {
-  ButtonSelect,
+  OptionSelected,
   CheckoutContainer,
   FormContainer,
   FormSubmitContainer,
@@ -14,33 +14,32 @@ import {
   Bank,
 } from 'phosphor-react'
 import { AddedCoffee } from '../../components/AddedCoffee'
+import { useState } from 'react'
 
 // eslint-disable-next-line no-redeclare
 interface ButtonSelect {
   id: number
   content: 'CARTÃO DE CRÉDITO' | 'CARTÃO DE DÉBITO' | 'DINHEIRO'
-  isSelected: boolean
 }
 
 const paymentOptions: ButtonSelect[] = [
   {
     id: 1,
     content: 'CARTÃO DE CRÉDITO',
-    isSelected: false,
   },
   {
     id: 2,
     content: 'CARTÃO DE DÉBITO',
-    isSelected: false,
   },
   {
     id: 3,
     content: 'DINHEIRO',
-    isSelected: false,
   },
 ]
 
 export function Checkout() {
+  const [selectedOption, setSelectedOption] = useState<number | null>(null)
+
   function getButtonIcon(id: number) {
     switch (id) {
       case 1:
@@ -95,10 +94,14 @@ export function Checkout() {
               </div>
               <div className="methodSelect">
                 {paymentOptions.map((option) => (
-                  <ButtonSelect key={option.id}>
+                  <OptionSelected
+                    key={option.id}
+                    onClick={() => setSelectedOption(option.id)}
+                    isSelected={selectedOption === option.id}
+                  >
                     {getButtonIcon(option.id)}
                     <span>{option.content}</span>
-                  </ButtonSelect>
+                  </OptionSelected>
                 ))}
               </div>
             </div>

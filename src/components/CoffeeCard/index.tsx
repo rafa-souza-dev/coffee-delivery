@@ -4,6 +4,7 @@ import { CoffeeProps } from '../../interfaces/coffee'
 import { getCoffeeImage } from '../../utils/coffees'
 import { useContext } from 'react'
 import { CoffeeContext } from '../../contexts/coffee'
+import { NavLink } from 'react-router-dom'
 
 export function CoffeeCard(props: CoffeeProps) {
   const { categories, description, id, name, unitPrice } = props
@@ -62,9 +63,11 @@ export function CoffeeCard(props: CoffeeProps) {
               <Plus size={16} />
             </button>
           </div>
-          <div className="iconCart">
-            <ShoppingCart size={24} />
-          </div>
+          <NavLink to="/checkout" title="Confirmação">
+            <div className="iconCart">
+              <ShoppingCart size={24} />
+            </div>
+          </NavLink>
         </div>
       </footer>
     </CardContainer>

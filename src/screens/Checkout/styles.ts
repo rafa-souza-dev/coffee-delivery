@@ -1,5 +1,9 @@
 import styled, { css } from 'styled-components'
 
+interface ButtonSelectProps {
+  isSelected: boolean
+}
+
 export const CheckoutContainer = styled.div`
   display: grid;
   gap: 2rem;
@@ -175,7 +179,7 @@ export const FormSubmitContainer = styled.div`
   gap: 1rem;
 `
 
-export const ButtonSelect = styled.button`
+export const OptionSelected = styled.div<ButtonSelectProps>`
   display: flex;
   align-items: center;
   /* justify-content: center; */
@@ -187,9 +191,15 @@ export const ButtonSelect = styled.button`
   border: 0;
   border-radius: 6px;
 
+  cursor: pointer;
+
   ${(props) =>
     css`
-      background-color: ${props.theme.baseButton};
+      background-color: ${props.isSelected
+        ? props.theme.purpleLight
+        : props.theme.baseButton};
+
+      border: ${props.isSelected ? `1px solid ${props.theme.purple}` : 0};
     `}
 
   span {
