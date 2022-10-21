@@ -7,6 +7,12 @@ export function CoffeeCard(props: CoffeeProps) {
   const { categories, description, id, name, unitPrice } = props
 
   const imagePath = getCoffeeImage(id)
+  const price = unitPrice
+    .toLocaleString('pt-br', {
+      style: 'currency',
+      currency: 'BRL',
+    })
+    .slice(3)
 
   return (
     <CardContainer>
@@ -23,7 +29,7 @@ export function CoffeeCard(props: CoffeeProps) {
       <footer>
         <div className="priceContainer">
           <p className="priceSymbol">R$</p>
-          <span className="priceValue">{unitPrice}</span>
+          <span className="priceValue">{price}</span>
         </div>
         <div className="accumulatorContainer">
           <div className="selectQuantity">
