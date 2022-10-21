@@ -19,8 +19,14 @@ export const CardContainer = styled.div`
     margin-top: -1.25rem;
   }
 
+  div.categories {
+    display: flex;
+    gap: 0.25rem;
+  }
+
   span.title {
-    width: 5.0625rem;
+    /* width: 5.0625rem; */
+    padding: 0.25rem 0.5rem;
     height: 1.3125rem;
 
     display: flex;

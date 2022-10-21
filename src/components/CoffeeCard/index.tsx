@@ -1,20 +1,29 @@
-import americano from '../../assets/americano.png'
 import { CardContainer } from './styles'
 import { ShoppingCart, Plus, Minus } from 'phosphor-react'
+import { CoffeeProps } from '../../interfaces/coffee'
+import { getCoffeeImage } from '../../utils/coffees'
 
-export function CoffeeCard() {
+export function CoffeeCard(props: CoffeeProps) {
+  const { categories, description, id, name, unitPrice } = props
+
+  const imagePath = getCoffeeImage(id)
+
   return (
     <CardContainer>
-      <img src={americano} alt="" />
-      <span className="title">TRADICIONAL</span>
-      <strong>Expresso Tradicional</strong>
-      <p className="textInfo">
-        O tradicional café feito com água quente e grãos moídos
-      </p>
+      <img src={imagePath} alt="" />
+      <div className="categories">
+        {categories.map((category) => (
+          <span key={category.name} className="title">
+            {category.name}
+          </span>
+        ))}
+      </div>
+      <strong>{name}</strong>
+      <p className="textInfo">{description}</p>
       <footer>
         <div className="priceContainer">
           <p className="priceSymbol">R$</p>
-          <span className="priceValue">9,90</span>
+          <span className="priceValue">{unitPrice}</span>
         </div>
         <div className="accumulatorContainer">
           <div className="selectQuantity">

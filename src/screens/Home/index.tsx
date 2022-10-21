@@ -3,6 +3,7 @@ import { ShoppingCart, Package, Timer, Coffee } from 'phosphor-react'
 import { Container } from '../../components/Container'
 import mainImage from '../../assets/main-image.png'
 import { CoffeeCard } from '../../components/CoffeeCard'
+import { coffeesData } from './mockCoffees'
 
 export function Home() {
   return (
@@ -50,21 +51,17 @@ export function Home() {
       <ListCoffees>
         <h1>Nossos cafés</h1>
         <ul className="cardList">
-          <li>
-            <CoffeeCard />
-          </li>
-          <li>
-            <CoffeeCard />
-          </li>
-          <li>
-            <CoffeeCard />
-          </li>
-          <li>
-            <CoffeeCard />
-          </li>
-          <li>
-            <CoffeeCard />
-          </li>
+          {coffeesData.map((coffee) => (
+            <li key={coffee.id}>
+              <CoffeeCard
+                id={coffee.id}
+                categories={coffee.categories}
+                name={coffee.name}
+                description={coffee.description}
+                unitPrice={coffee.unitPrice}
+              />
+            </li>
+          ))}
         </ul>
       </ListCoffees>
     </Container>
