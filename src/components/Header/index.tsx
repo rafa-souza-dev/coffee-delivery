@@ -3,8 +3,12 @@ import logo from '../../assets/logo.svg'
 import { HeaderContainer } from './styles'
 import { Container } from '../Container/index'
 import { NavLink } from 'react-router-dom'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../contexts/coffee'
 
-export function Header(props: any) {
+export function Header() {
+  const { coffees } = useContext(CoffeeContext)
+
   return (
     <HeaderContainer>
       <Container>
@@ -19,9 +23,11 @@ export function Header(props: any) {
               <NavLink to="/checkout" title="Confirmação">
                 <button>
                   <ShoppingCart size={24} />
-                  <div>
-                    <p>3</p>
-                  </div>
+                  {coffees.length > 0 && (
+                    <div>
+                      <p>{coffees.length}</p>
+                    </div>
+                  )}
                 </button>
               </NavLink>
             </li>

@@ -5,7 +5,7 @@ import {
   CoffeeProviderProps,
 } from '../interfaces/coffee'
 
-const CoffeeContext = createContext({} as CoffeeContextData)
+export const CoffeeContext = createContext({} as CoffeeContextData)
 
 export function CoffeeProvider({ children }: CoffeeProviderProps) {
   const [amount, setAmount] = useState(0)
