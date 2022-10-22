@@ -52,7 +52,7 @@ export const AddedCoffeeContainer = styled.div`
       `}
   }
 
-  div.selectQuantity button.accumulator {
+  div.selectQuantity div.accumulator {
     border: 0;
     display: flex;
     align-items: center;

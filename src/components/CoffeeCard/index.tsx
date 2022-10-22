@@ -40,7 +40,7 @@ export function CoffeeCard(props: CoffeeProps) {
     <CardContainer>
       <img src={imagePath} alt="" />
       <div className="categories">
-        {categories.map((category) => (
+        {categories?.map((category) => (
           <span key={category.name} className="title">
             {category.name}
           </span>

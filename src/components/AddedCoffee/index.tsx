@@ -1,25 +1,48 @@
 import { AddedCoffeeContainer } from './styles'
-
 import { Minus, Plus, Trash } from 'phosphor-react'
+import { CoffeeProps } from '../../interfaces/coffee'
+import { useContext } from 'react'
+import { CoffeeContext } from '../../contexts/coffee'
 
-import americano from '../../assets/americano.png'
+export function AddedCoffee(props: CoffeeProps) {
+  const { id, imagePath, name, quantity, unitPrice } = props
 
-export function AddedCoffee() {
+  const { setCoffeesInContext, coffees, amount, setAmountInContext } =
+    useContext(CoffeeContext)
+
+  const totalPrice = (quantity! * unitPrice).toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  function handleAddCoffee() {
+    setCoffeesInContext([...coffees, props])
+    setAmountInContext(amount + props.unitPrice)
+  }
+
+  function handleRemoveCoffe() {
+    const coffeeIndex = coffees.findIndex((coffee) => coffee.id === id)
+    const newCoffeeArray = coffees
+    newCoffeeArray.splice(coffeeIndex, 1)
+    setCoffeesInContext(newCoffeeArray)
+    setAmountInContext(amount - props.unitPrice)
+  }
+
   return (
     <AddedCoffeeContainer>
       <div className="leftBox">
-        <img src={americano} alt="" />
+        <img src={imagePath} alt="" />
         <div className="centerBox">
-          <span>Expresso Tradicional</span>
+          <span>{name}</span>
           <div className="checkoutController">
             <div className="selectQuantity">
-              <button className="accumulator">
+              <div className="accumulator" onClick={handleRemoveCoffe}>
                 <Minus size={16} />
-              </button>
-              <p className="quantity">1</p>
-              <button className="accumulator">
+              </div>
+              <p className="quantity">{quantity}</p>
+              <div className="accumulator" onClick={handleAddCoffee}>
                 <Plus size={16} />
-              </button>
+              </div>
             </div>
             <button className="buttonRemove">
               <Trash size={16} color="#8047F8" />
@@ -28,7 +51,7 @@ export function AddedCoffee() {
           </div>
         </div>
       </div>
-      <span className="unitPrice">R$ 9,90</span>
+      <span className="unitPrice">{totalPrice}</span>
     </AddedCoffeeContainer>
   )
 }

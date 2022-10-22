@@ -14,7 +14,12 @@ import {
   Bank,
 } from 'phosphor-react'
 import { AddedCoffee } from '../../components/AddedCoffee'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { CoffeeContext } from '../../contexts/coffee'
+
+import { CoffeeProps } from '../../interfaces/coffee'
+import { coffeesData } from '../Home/mockCoffees'
+import { getCoffeeImage } from '../../utils/coffees'
 
 // eslint-disable-next-line no-redeclare
 interface ButtonSelect {
@@ -38,6 +43,7 @@ const paymentOptions: ButtonSelect[] = [
 ]
 
 export function Checkout() {
+  const { coffees } = useContext(CoffeeContext)
   const [selectedOption, setSelectedOption] = useState<number | null>(null)
 
   function getButtonIcon(id: number) {
@@ -51,6 +57,33 @@ export function Checkout() {
       default:
         return <CreditCard size={16} color="#8047F8" />
     }
+  }
+
+  function getUniqueIds() {
+    const ids: number[] = []
+
+    coffees.forEach((coffee) => {
+      if (!ids.includes(coffee.id)) {
+        ids.push(coffee.id)
+      }
+    })
+
+    return ids
+  }
+
+  function getSelectedCoffees() {
+    const coffeesAux: CoffeeProps[] = []
+
+    getUniqueIds().forEach((id) => {
+      const coffee = coffeesData.find((coffeeData) => coffeeData.id === id)
+      if (coffee) coffeesAux.push(coffee)
+    })
+
+    return coffeesAux
+  }
+
+  function getQuantity(id: number) {
+    return coffees.filter((coffee) => coffee.id === id).length
   }
 
   return (
@@ -109,7 +142,16 @@ export function Checkout() {
           <FormSubmitContainer>
             <span className="title">Cafés selecionados</span>
             <SubmitContainer>
-              <AddedCoffee />
+              {getSelectedCoffees().map((coffee) => (
+                <AddedCoffee
+                  key={coffee.id}
+                  id={coffee.id}
+                  imagePath={getCoffeeImage(coffee.id)}
+                  name={coffee.name}
+                  quantity={getQuantity(coffee.id)}
+                  unitPrice={coffee.unitPrice}
+                />
+              ))}
               <div className="priceTotalBox">
                 <div>
                   <p>Total de itens</p>

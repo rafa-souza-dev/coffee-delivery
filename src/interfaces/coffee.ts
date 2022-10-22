@@ -6,10 +6,12 @@ export interface Category {
 
 export interface CoffeeProps {
   id: number
-  categories: Category[]
+  categories?: Category[]
   name: string
-  description: string
+  description?: string
   unitPrice: number
+  imagePath?: string
+  quantity?: number
 }
 
 export interface CoffeeContextData {
@@ -21,4 +23,12 @@ export interface CoffeeContextData {
 
 export interface CoffeeProviderProps {
   children: ReactNode
+}
+
+export interface AddedCoffeeProps {
+  id: number
+  quantity: number
+  unitPrice: number
+  imagePath: string
+  name: string
 }
