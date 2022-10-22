@@ -77,6 +77,8 @@ export const AddedCoffeeContainer = styled.div`
     height: 2rem;
     border-radius: 6px;
 
+    cursor: pointer;
+
     gap: 0.25rem;
 
     ${(props) =>

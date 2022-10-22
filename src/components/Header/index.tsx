@@ -13,7 +13,9 @@ export function Header() {
     <HeaderContainer>
       <Container>
         <div>
-          <img src={logo} alt="" />
+          <NavLink to="/">
+            <img src={logo} alt="" />
+          </NavLink>
           <ul>
             <li>
               <MapPin size={24} />
