@@ -14,12 +14,13 @@ import {
   Bank,
 } from 'phosphor-react'
 import { AddedCoffee } from '../../components/AddedCoffee'
-import { useContext, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 import { CoffeeContext } from '../../contexts/coffee'
 
 import { CoffeeProps } from '../../interfaces/coffee'
 import { coffeesData } from '../Home/mockCoffees'
 import { getCoffeeImage } from '../../utils/coffees'
+import { useNavigate } from 'react-router-dom'
 
 // eslint-disable-next-line no-redeclare
 interface ButtonSelect {
@@ -43,8 +44,16 @@ const paymentOptions: ButtonSelect[] = [
 ]
 
 export function Checkout() {
-  const { coffees, amount } = useContext(CoffeeContext)
+  const navigate = useNavigate()
+  const { coffees, amount, setCoffeesInContext, setAmountInContext } =
+    useContext(CoffeeContext)
   const [selectedOption, setSelectedOption] = useState<number | null>(null)
+
+  function handleSubmit(event: FormEvent) {
+    setCoffeesInContext([])
+    setAmountInContext(0)
+    navigate('/success')
+  }
 
   function getButtonIcon(id: number) {
     switch (id) {
@@ -98,11 +107,9 @@ export function Checkout() {
 
   const isButtonDisabled = amount === 0
 
-  // console.log(amount)
-
   return (
     <Container>
-      <form action="">
+      <form action="" onSubmit={handleSubmit}>
         <CheckoutContainer>
           <FormContainer>
             <span className="title">Complete seu pedido</span>
