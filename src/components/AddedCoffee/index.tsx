@@ -25,13 +25,14 @@ export function AddedCoffee(props: CoffeeProps) {
     const newCoffeeArray = coffees
     newCoffeeArray.splice(coffeeIndex, 1)
     setCoffeesInContext(newCoffeeArray)
+    console.log(props.unitPrice)
     setAmountInContext(amount - props.unitPrice)
   }
 
   function handleRemoveCoffesById() {
     const newCoffesArray = coffees.filter((coffee) => coffee.id !== id)
     setCoffeesInContext(newCoffesArray)
-    setAmountInContext(amount - props.unitPrice)
+    setAmountInContext(amount - props.unitPrice * quantity!)
   }
 
   return (

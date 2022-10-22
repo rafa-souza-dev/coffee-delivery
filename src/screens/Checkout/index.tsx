@@ -98,6 +98,8 @@ export function Checkout() {
 
   const isButtonDisabled = amount === 0
 
+  // console.log(amount)
+
   return (
     <Container>
       <form action="">
@@ -141,7 +143,11 @@ export function Checkout() {
                 {paymentOptions.map((option) => (
                   <OptionSelected
                     key={option.id}
-                    onClick={() => setSelectedOption(option.id)}
+                    onClick={() => {
+                      selectedOption === option.id
+                        ? setSelectedOption(null)
+                        : setSelectedOption(option.id)
+                    }}
                     isSelected={selectedOption === option.id}
                   >
                     {getButtonIcon(option.id)}

@@ -36,6 +36,8 @@ export function CoffeeCard(props: CoffeeProps) {
 
   const quantity = coffees.filter((coffee) => coffee.id === id).length
 
+  // console.log(amount)
+
   return (
     <CardContainer>
       <img src={imagePath} alt="" />

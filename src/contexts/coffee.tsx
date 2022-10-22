@@ -16,7 +16,12 @@ export function CoffeeProvider({ children }: CoffeeProviderProps) {
   }
 
   function setAmountInContext(value: number) {
-    setAmount(value)
+    console.log(value)
+    if (value < 3.6) {
+      setAmount(0)
+    } else {
+      setAmount(value)
+    }
   }
 
   return (
