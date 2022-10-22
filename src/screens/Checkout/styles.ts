@@ -263,5 +263,21 @@ export const SubmitContainer = styled.div`
     font-weight: 700;
     font-size: 14px;
     line-height: 160%;
+
+    transition: 0.3s;
+
+    cursor: pointer;
+  }
+
+  button:not(:disabled):hover {
+    ${(props) =>
+      css`
+        background-color: ${props.theme.yellowLight};
+      `}
+  }
+
+  button:disabled {
+    background-color: #d9d9d9;
+    cursor: not-allowed;
   }
 `

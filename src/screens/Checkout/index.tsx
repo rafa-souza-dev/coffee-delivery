@@ -43,7 +43,7 @@ const paymentOptions: ButtonSelect[] = [
 ]
 
 export function Checkout() {
-  const { coffees } = useContext(CoffeeContext)
+  const { coffees, amount } = useContext(CoffeeContext)
   const [selectedOption, setSelectedOption] = useState<number | null>(null)
 
   function getButtonIcon(id: number) {
@@ -85,6 +85,18 @@ export function Checkout() {
   function getQuantity(id: number) {
     return coffees.filter((coffee) => coffee.id === id).length
   }
+
+  const itemsAmount = amount.toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  const totalAmount = (amount + 3.5).toLocaleString('pt-br', {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  const isButtonDisabled = amount === 0
 
   return (
     <Container>
@@ -155,7 +167,7 @@ export function Checkout() {
               <div className="priceTotalBox">
                 <div>
                   <p>Total de itens</p>
-                  <span>R$ 29,70</span>
+                  <span>{itemsAmount}</span>
                 </div>
                 <div>
                   <p>Entrega</p>
@@ -163,10 +175,10 @@ export function Checkout() {
                 </div>
                 <div>
                   <p>Total</p>
-                  <span>R$ 33,20</span>
+                  <span>{totalAmount}</span>
                 </div>
               </div>
-              <button>CONFIRMAR PEDIDO</button>
+              <button disabled={isButtonDisabled}>CONFIRMAR PEDIDO</button>
             </SubmitContainer>
           </FormSubmitContainer>
         </CheckoutContainer>
