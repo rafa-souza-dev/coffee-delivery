@@ -28,6 +28,12 @@ export function AddedCoffee(props: CoffeeProps) {
     setAmountInContext(amount - props.unitPrice)
   }
 
+  function handleRemoveCoffesById() {
+    const newCoffesArray = coffees.filter((coffee) => coffee.id !== id)
+    setCoffeesInContext(newCoffesArray)
+    setAmountInContext(amount - props.unitPrice)
+  }
+
   return (
     <AddedCoffeeContainer>
       <div className="leftBox">
@@ -44,7 +50,7 @@ export function AddedCoffee(props: CoffeeProps) {
                 <Plus size={16} />
               </div>
             </div>
-            <button className="buttonRemove">
+            <button className="buttonRemove" onClick={handleRemoveCoffesById}>
               <Trash size={16} color="#8047F8" />
               <span>REMOVER</span>
             </button>
